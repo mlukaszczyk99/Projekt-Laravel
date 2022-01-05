@@ -15,7 +15,7 @@ use App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::get('/users/list', [App\Http\Controllers\UserController::class, 'index'])->middleware('can:isAdmin'); //autoryzacja tylko po zalogowaniu na admina (zabezpieczenie backendu)

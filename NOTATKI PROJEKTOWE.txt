@@ -19,6 +19,8 @@ szablon do listy użytkowników
 
 routing: routes > view.php
 
+css: public > css > app.css
+
 kontrolery: app > http > contollers
 
 menu dropdown: resources > views > layouts >app.blade.php
@@ -31,6 +33,8 @@ app > enums > UserRole.php
 sprawdzanie uprawnień:
 backend: app > providers > AuthServiceProvider - Gate
 frontend: resources > views > layouts >app.blade.php - @Can
+
+blokada redirecta po rejestracji
 
 --------------------BACKLOG---------------------------
 

@@ -17,6 +17,13 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <div>
+                @can('isAdmin') <!-- autoryzacja tylko dla admina (zabezpieczenie frontendu) -->
+                <a class="btn btn-primary" href ="users/list">Users</a>
+                <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                @endcan
+                
+            </div>
         </div>
     </div>
 </div>
