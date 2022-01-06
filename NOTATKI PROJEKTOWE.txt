@@ -37,8 +37,3 @@ frontend: resources > views > layouts >app.blade.php - @Can
 blokada redirecta po rejestracji
 
 --------------------BACKLOG---------------------------
-
-1. później trzeba usunąć funkcję automatycznego zalogowania się gdy zostaje utworzone konto
-	docelowo chcemy żeby admin tworzył konto usera ręcznie i nie wchodził na nie z automatu tak jak ma to miejsce domyślnie
-2. dodanie wyboru roli użytkownika przy rejestracji
-3. przeniesienie przycisku register do dropdown menu i uczynienie go dostępnym tylko dla adminów
