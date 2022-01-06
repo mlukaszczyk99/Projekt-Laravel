@@ -15,11 +15,15 @@ use App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('/auth/login');
+    return view('auth/login');
 });
 
 Route::get('/users/list', [App\Http\Controllers\UserController::class, 'index'])->middleware('can:isAdmin'); //autoryzacja tylko po zalogowaniu na admina (zabezpieczenie backendu)
 
+
+
 Auth::routes();
+
+Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register')->middleware('can:isAdmin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
