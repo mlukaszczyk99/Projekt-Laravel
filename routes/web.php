@@ -20,10 +20,12 @@ Route::get('/', function () {
 
 Route::get('/users/list', [App\Http\Controllers\UserController::class, 'index'])->middleware('can:isAdmin'); //autoryzacja tylko po zalogowaniu na admina (zabezpieczenie backendu)
 
-
-
 Auth::routes();
 
 Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register')->middleware('can:isAdmin');
+
+Route::get('/employees', [App\Http\Controllers\EmployeesController::class, 'index'])->name('Employees')->middleware('auth');
+Route::get('/employees/add', [App\Http\Controllers\EmployeesController::class, 'create'])->name('addEmployees')->middleware('auth');
+Route::post('/employees', [App\Http\Controllers\EmployeesController::class, 'store'])->name('employees.store')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

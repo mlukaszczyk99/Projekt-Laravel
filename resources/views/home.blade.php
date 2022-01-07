@@ -22,7 +22,8 @@
                 <a class="btn btn-primary" href ="users/list">Users</a>
                 <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
                 @endcan
-                
+                <a href="{{ route('Employees') }}" class="btn btn-primary">Employees</a>
+                <a href="{{ route('addEmployees') }}" class="btn btn-primary">Add employees</a>
             </div>
         </div>
     </div>
