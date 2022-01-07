@@ -12,7 +12,6 @@
         <th scope="col">Pesel</th>
         <th scope="col">Department</th>
         <th scope="col">Job</th>
-        <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +24,6 @@
                 <td>{{ $employee->pesel }}</td>
                 <td>{{ $employee->department }}</td>
                 <td>{{ $employee->job }}</td>
-                <td>{{ $employee->status }}</td>
             </tr>
         @endforeach
     </tbody>

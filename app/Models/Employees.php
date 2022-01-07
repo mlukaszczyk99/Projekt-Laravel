@@ -20,7 +20,6 @@ class Employees extends Model
         'email',
         'pesel',
         'department',
-        'job',
-        'status'
+        'job'
     ];
 }

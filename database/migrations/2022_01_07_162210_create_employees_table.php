@@ -21,7 +21,6 @@ class CreateEmployeesTable extends Migration
             $table->string('pesel')->length(11)->unique();
             $table->string('department')->length(50);
             $table->string('job')->length(50);
-            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
