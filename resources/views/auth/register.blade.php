@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="pb-3">
+            <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 

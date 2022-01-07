@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         //widok
         return view('users.index', [ 
-            'users' => User::all()
+            'users' => User::paginate(10)
         ]);
     }
 

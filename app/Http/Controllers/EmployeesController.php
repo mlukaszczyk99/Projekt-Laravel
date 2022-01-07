@@ -17,7 +17,7 @@ class EmployeesController extends Controller
     {
         //widok
         return view('employees.index', [ 
-            'employees' => Employees::all()
+            'employees' => Employees::paginate(10)
         ]);
     }
 

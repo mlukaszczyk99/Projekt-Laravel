@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="pb-3">
+                <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
+            </div>
             <div class="card">
                 <div class="card-header">Add employee</div>
 
@@ -56,7 +59,7 @@
                         <div class="row mb-3">
                             <label for="pesel" class="col-md-4 col-form-label text-md-right">{{ __('Pesel') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6"><!-- pole pesel jest tekstowe alby mogło przyjnować zero na początku, zostało jednak ograniczone do 11 cyfr -->
                                 <input id="pesel" type="text" minlength="11" maxlength="11" pattern="[0-9]{11}" class="form-control @error('pesel') is-invalid @enderror" name="pesel" value="{{ old('pesel') }}" required autocomplete="pesel" autofocus>
                             </div>
                         </div>

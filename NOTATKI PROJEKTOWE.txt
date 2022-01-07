@@ -34,6 +34,7 @@ sprawdzanie uprawnień:
 backend: app > providers > AuthServiceProvider - Gate
 frontend: resources > views > layouts >app.blade.php - @Can
 
-blokada redirecta po rejestracji
+paginacja:
+app > http > providers > appserviceprovider + zmiany w kontrolerach
 
 --------------------BACKLOG---------------------------

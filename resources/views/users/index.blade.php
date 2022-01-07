@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class='container'>
+    <div class="pb-3">
+        <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
+    </div>
     <table class="table">
     <thead>
         <tr>
@@ -24,5 +28,6 @@
         @endforeach
     </tbody>
     </table>
+    {{ $users -> links()}}
 </div>
 @endsection
