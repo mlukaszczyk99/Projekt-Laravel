@@ -37,4 +37,10 @@ frontend: resources > views > layouts >app.blade.php - @Can
 paginacja:
 app > http > providers > appserviceprovider + zmiany w kontrolerach
 
+zablokowanie automatycznego logowania po rejestracji:
+vendor\laravel\ui\auth-backend\RegistersUsers.php - linia 36 zakomentowana
+
+walidacja rejestracji:
+vendor\laravel\ui\auth-backend\RegistersUsers.php
+
 --------------------BACKLOG---------------------------

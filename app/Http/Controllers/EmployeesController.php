@@ -40,7 +40,17 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        $employee = new Employees($request->all());
+        /**walidacja */
+        $validated = $request->validate([
+            'name' => 'required|max:20|string',
+            'surname' => 'required|max:20|string',
+            'email' => 'required|max:50|email',
+            'pesel' => 'required|max:11|min:11|string|unique:employees',
+            'department' => 'required|max:50|string',
+            'job' => 'required|max:50|string'
+        ]);
+
+        $employee = new Employees($validated); /**dodaje tylko zwalidowany wpis */
         $employee->save();
         return redirect(route('Employees'));
     }
