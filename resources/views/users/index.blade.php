@@ -12,7 +12,7 @@
         <th scope="col">#</th>
         <th scope="col">Email</th>
         <th scope="col">Name</th>
-        <th scope="col">Surame</th>
+        <th scope="col">Surname</th>
         <th scope="col">Role</th>
         </tr>
     </thead>
@@ -24,6 +24,20 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->surname }}</td>
                 <td>{{ $user->role }}</td>
+                <td>
+                <a href="{{ route('editUsers', $user->id) }}">
+                            <button class="btn btn-success btn-sm"><i class="far fa-edit">
+                                Edit
+                            </i></button>
+                        </a>
+                        
+                        <form action="{{ route('destroyUsers', $user->id) }}" method="post">
+                         @method('POST')
+                        @csrf
+                        <input class="btn btn-danger btn-sm delete" type="submit" value="Delete" />
+                        </form>
+                        
+                    </td>
             </tr>
         @endforeach
     </tbody>

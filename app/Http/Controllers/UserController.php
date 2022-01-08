@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -55,34 +57,41 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User  $users
+     * @return Response
      */
-    public function edit($id)
+    public function edit(User  $users)
     {
-        //
+        return view("users.edit", [
+            'user' => $users,
+            
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  User  $users
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User  $users) : RedirectResponse
     {
-        //
+        $users->fill($request->all());
+        $users->save();
+        return redirect(route('Users'));
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User  $users
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(User  $users): RedirectResponse
     {
-        //
+        $users->delete();
+        return redirect(route('Users'));
     }
 }

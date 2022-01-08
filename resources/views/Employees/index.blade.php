@@ -2,15 +2,12 @@
 
 @section('content')
 <div class='container'>
-    <div class="pb-3">
-        <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
-    </div>
     <table class="table">
     <thead>
         <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Surame</th>
+        <th scope="col">Surname</th>
         <th scope="col">Email</th>
         <th scope="col">Pesel</th>
         <th scope="col">Department</th>
@@ -18,8 +15,10 @@
         </tr>
     </thead>
     <tbody>
+    
         @foreach($employees as $employee)
             <tr>
+           
                 <th scope="row">{{ $employee->id }}</th>
                 <td>{{ $employee->name }}</td>
                 <td>{{ $employee->surname }}</td>
@@ -33,15 +32,17 @@
                                 Edit
                             </i></button>
                         </a>
-
-                        <button class="btn btn-danger btn-sm delete" data-id="{{ route('destroyEmployees', $employee->id) }}">
-                            <i class="far fa-trash-alt"> Delete </i>
-                        </button>
+                        
+                        <form action="{{ route('destroyEmployees', $employee->id) }}" method="post">
+                         @method('POST')
+                        @csrf
+                        <input class="btn btn-danger btn-sm delete" type="submit" value="Delete" />
+                        </form>
+                        
                     </td>
             </tr>
         @endforeach
     </tbody>
     </table>
-    {{ $employees -> links()}}
-</div>
+    
 @endsection

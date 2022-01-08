@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class EmployeesController extends Controller
 {
@@ -69,8 +70,8 @@ class EmployeesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employees  $employees
-     * @return \Illuminate\Http\Response
+     * @param  Employees  $employees
+     * @return Response
      */
     public function edit(Employees $employees)
     {
@@ -92,18 +93,21 @@ class EmployeesController extends Controller
         $employees->fill($request->all());
         $employees->save();
         return redirect(route('Employees'));
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employees  $employees
-     * @return \Illuminate\Http\Response
+     * @param  Employees  $employees
+     * @return RedirectResponse
      */
-    public function destroy(Employees $employees): JsonResponse
+    public function destroy(Employees $employees): RedirectResponse
     {
         $employees->delete();
+        return redirect(route('Employees'));
     }
 
-}
+ 
 
+}

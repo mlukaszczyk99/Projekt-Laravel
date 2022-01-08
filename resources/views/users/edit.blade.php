@@ -5,20 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="pb-3">
-                <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
+            <a href="{{ route('home') }}" class="btn btn-outline-primary"><- Go back</a>
             </div>
             <div class="card">
-                <div class="card-header">Add employee</div>
+                <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('employees.store') }}">
+                <form method="POST" action="{{ route('updateUsers', $user->id) }}">
                         @csrf
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" maxlength="20" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" maxlength="20" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="surname" type="text" maxlength="20" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                <input id="surname" type="text" maxlength="20" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ $user->surname }}" required autocomplete="surname" autofocus>
 
                                 @error('surname')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" maxlength="50" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                <input id="email" type="email" maxlength="50" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -57,33 +57,42 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="pesel" class="col-md-4 col-form-label text-md-right">{{ __('Pesel') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6"><!-- pole pesel jest tekstowe alby mogło przyjnować zero na początku, zostało jednak ograniczone do 11 cyfr -->
-                                <input id="pesel" type="text" minlength="11" maxlength="11" pattern="[0-9]{11}" class="form-control @error('pesel') is-invalid @enderror" name="pesel" value="{{ old('pesel') }}" required autocomplete="pesel" autofocus>
+                            <div class="col-md-6">
+                                <input id="password" type="password" minlength="8" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="department" type="text" maxlength="50" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}" required autocomplete="department" autofocus>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="job" maxlength="50" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
-                                <input id="job" type="text" class="form-control @error('job') is-invalid @enderror" name="job" value="{{ old('job') }}" required autocomplete="job" autofocus>
+                                <select id="role" class="form-control" name="role">
+                                    <option value="user" selected="selected">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Submit
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>
