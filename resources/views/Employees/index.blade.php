@@ -24,6 +24,17 @@
                 <td>{{ $employee->pesel }}</td>
                 <td>{{ $employee->department }}</td>
                 <td>{{ $employee->job }}</td>
+                <td>
+                <a href="{{ route('editEmployees', $employee->id) }}">
+                            <button class="btn btn-success btn-sm"><i class="far fa-edit">
+                                Edit
+                            </i></button>
+                        </a>
+
+                        <button class="btn btn-danger btn-sm delete" data-id="{{ route('destroyEmployees', $employee->id) }}">
+                            <i class="far fa-trash-alt"> Delete </i>
+                        </button>
+                    </td>
             </tr>
         @endforeach
     </tbody>
