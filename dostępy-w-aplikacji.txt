@@ -1,0 +1,12 @@
+bazę należy zainportować pod nazwą projekt-laravel
+
+administratorzy:
+
+login: rybak@rybak.com hasło: rybak123
+Login: maciej@maciej.com hasło maciej123
+
+userzy:
+
+login: julia@julia.com hasło: julia123
+login: piec@piec.com hasło: tomasz123
+login: wanna@wanna.com hasło: wanna123
