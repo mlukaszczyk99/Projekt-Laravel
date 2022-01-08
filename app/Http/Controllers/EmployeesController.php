@@ -74,19 +74,24 @@ class EmployeesController extends Controller
      */
     public function edit(Employees $employees)
     {
-        //
+        return view("employees.edit", [
+            'employees' => $employees,
+            
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employees  $employees
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Employees  $employees
+     * @return RedirectResponse
      */
-    public function update(Request $request, Employees $employees)
+    public function update(Request $request, Employees $employees) : RedirectResponse
     {
-        //
+        $employees->fill($request->all());
+        $employees->save();
+        return redirect(route('Employees'));
     }
 
     /**
@@ -95,8 +100,10 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employees $employees)
+    public function destroy(Employees $employees): JsonResponse
     {
-        //
+        $employees->delete();
     }
+
 }
+
