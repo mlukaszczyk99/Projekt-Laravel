@@ -27,6 +27,10 @@ Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistr
 //tylko dla zalogowanych userów
 Route::get('/employees', [App\Http\Controllers\EmployeesController::class, 'index'])->name('Employees')->middleware('auth');
 Route::get('/employees/add', [App\Http\Controllers\EmployeesController::class, 'create'])->name('addEmployees')->middleware('auth');
+Route::get('/employees/edit/{employees}', [App\Http\Controllers\EmployeesController::class, 'edit'])->name('editEmployees')->middleware('auth');
+Route::delete('/employees/{employees}', [App\Http\Controllers\EmployeesController::class, 'destroy'])->name('destroyEmployees')->middleware('auth');
+Route::post('/employees/{employees}', [App\Http\Controllers\EmployeesController::class, 'update'])->name('updateEmployees')->middleware('auth');
 Route::post('/employees', [App\Http\Controllers\EmployeesController::class, 'store'])->name('employees.store')->middleware('auth');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
